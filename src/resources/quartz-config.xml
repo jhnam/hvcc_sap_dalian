@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<job-scheduling-data
+    xmlns="http://www.quartz-scheduler.org/xml/JobSchedulingData"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.quartz-scheduler.org/xml/JobSchedulingData
+	http://www.quartz-scheduler.org/xml/job_scheduling_data_1_8.xsd" version="1.8">
+    <schedule>
+        <job>
+            <name>ActualToSapJob</name>
+            <group>Every5MinGroup</group>
+            <description>This is ActualToSapJob</description>
+            <job-class>com.hvcc.sap.jobs.ActualToSapJob</job-class>
+        </job>
+        <job>
+            <name>ScrapToSapJob</name>
+            <group>Every10MinGroup</group>
+            <description>This is ScrapToSapJob</description>
+            <job-class>com.hvcc.sap.jobs.ScrapToSapJob</job-class>
+        </job>
+        <job>
+            <name>PlanToMesJob</name>
+            <group>EveryDayGroup</group>
+            <description>This is PlanToMesJob</description>
+            <job-class>com.hvcc.sap.jobs.PlanToMesJob</job-class>
+        </job>         
+        <!--job>
+            <name>Test1Job</name>
+            <group>Every5MinGroup</group>
+            <description>This is Test1Job</description>
+            <job-class>com.hvcc.sap.jobs.Test1Job</job-class>
+        </job>
+        <job>
+            <name>Test2Job</name>
+            <group>Every30SecGroup</group>
+            <description>This is Test2Job</description>
+            <job-class>com.hvcc.sap.jobs.Test2Job</job-class>
+        </job>
+        <job>
+            <name>Test3Job</name>
+            <group>EveryDay12PMGroup</group>
+            <description>This is Test3Job</description>
+            <job-class>com.hvcc.sap.jobs.Test3Job</job-class>
+        </job-->
+        <trigger>
+            <cron>
+                <name>realTimeTrigger</name>
+                <group>REAL_TRIG_GROUP</group>
+                <job-name>ActualToSapJob</job-name>
+                <job-group>Every5MinGroup</job-group>
+                <cron-expression>0 0/1 * * * ?</cron-expression>
+            </cron>
+        </trigger>
+        <trigger>
+            <cron>
+                <name>realTimeTrigger</name>
+                <group>REAL_TRIG_GROUP10</group>
+                <job-name>ScrapToSapJob</job-name>
+                <job-group>Every10MinGroup</job-group>
+                <cron-expression>0 0/2 * * * ?</cron-expression>
+            </cron>
+        </trigger>
+        <trigger>
+            <cron>
+                <name>realTimeTrigger</name>
+                <group>REAL_TRIG_GROUP_DAY</group>
+                <job-name>PlanToMesJob</job-name>
+                <job-group>EveryDayGroup</job-group>
+                <cron-expression>0 0/5 * * * ?</cron-expression>
+            </cron>
+        </trigger>        
+        <!--trigger>
+            <cron>
+                <name>realTimeTrigger2</name>
+                <group>REAL_TRIG_GROUP2</group>
+                <job-name>Test2Job</job-name>
+                <job-group>Every30SecGroup</job-group>
+                <cron-expression>0/30 * * * * ?</cron-expression>
+            </cron>
+        </trigger>
+        <trigger>
+            <cron>
+                <name>daily12Trigger</name>
+                <group>DAILY_12_GROUP</group>
+                <job-name>Test3Job</job-name>
+                <job-group>EveryDay12PMGroup</job-group>
+                <cron-expression>0 0 12 * * ?</cron-expression>
+            </cron>
+        </trigger-->        
+    </schedule>    
+</job-scheduling-data>
